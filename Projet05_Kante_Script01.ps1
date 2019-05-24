@@ -36,7 +36,7 @@ $nomducompte= "$leprenom.$lesurnom"
 New-Item -Name $lenom -ItemType Directory -Path E:\Shares\aduser
 $pathhd="E:\Shares\aduser\$lenom"
 #creation de l'utilisateur ad
-New-ADUser -GivenName $leprenom -Surname $lesurnom -SamAccountName $nomducompte -Name $lenom -Path $path -AccountPassword $mdpsecure -UserPrincipalName "$nomducompte@acme.fr" -HomeDirectory $pathhd -Enabled $true -ProfilePath "E:\Shares\aduser\$lenom"
+New-ADUser -GivenName $leprenom -Surname $lesurnom -SamAccountName $nomducompte -Name $lenom -Path $path -AccountPassword $mdpsecure -UserPrincipalName "$nomducompte@acme.fr" -HomeDirectory $pathhd -Enabled $true 
 Add-ADGroupMember -Identity $grputilisateur -Members $nomducompte 
 
 $Userad= Get-ADUser -Identity $nomducompte
